@@ -1,0 +1,51 @@
+#!/bin/bash
+'''
+    This program plays online radios...
+    Copyright (C) 2013 Appavoo P Vara
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+clear
+if command mplayer > /dev/null
+then
+	echo "Which radio station do you want to tune in?"
+	echo "1. RadioPlus"
+	echo "2. Best FM"
+	echo "3. RadioONE"
+	echo "Enter 1, 2, 3 to select or any other thing to quit!"
+	read choice
+	if test $choice -eq "1" 
+	then
+		echo "You are now listening to RadioPlus..."
+		mplayer mms://mediaserver.intnet.mu/radioplus
+	elif test $choice -eq "2" 
+	then
+		echo "You are now listening to BestFM..."
+		mplayer mms://mediaserver.intnet.mu/bestfm
+	elif test $choice -eq "3" 
+	then
+		echo "You are now listening to RadioONE..."
+		mplayer http://208.116.36.22:5000/listen.pls
+	else
+		clear
+		echo "Bye."
+	fi
+else
+	echo "You need mplayer to listen to a radio station."
+	echo "To install mplayer on your CentOS, type:"
+	echo "sudo yum install mplayer"
+	echo "Bye."
+fi
+
+
