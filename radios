@@ -2,7 +2,6 @@
 '''
     This program plays online radios...
     Copyright (C) 2013 Appavoo P Vara
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -21,8 +20,10 @@ if command mplayer > /dev/null
 then
 	echo "Which radio station do you want to tune in?"
 	echo "1. RadioPlus"
-	echo "2. Best FM"
-	echo "3. RadioONE"
+	echo "2. Top FM"
+	echo "3. Best FM"
+	echo "4. RadioONE"
+
 	echo "Enter 1, 2, 3 to select or any other thing to quit!"
 	read choice
 	if test $choice -eq "1" 
@@ -31,9 +32,13 @@ then
 		mplayer mms://mediaserver.intnet.mu/radioplus
 	elif test $choice -eq "2" 
 	then
+		echo "You are now listening to TopFM..."
+		mplayer rtsp://202.123.13.40:1935/live/TopFM.sdp
+	elif test $choice -eq "3" 
+	then
 		echo "You are now listening to BestFM..."
 		mplayer mms://mediaserver.intnet.mu/bestfm
-	elif test $choice -eq "3" 
+	elif test $choice -eq "4" 
 	then
 		echo "You are now listening to RadioONE..."
 		mplayer http://208.116.36.22:5000/listen.pls
@@ -47,5 +52,3 @@ else
 	echo "sudo yum install mplayer"
 	echo "Bye."
 fi
-
-
