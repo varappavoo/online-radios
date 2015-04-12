@@ -1,7 +1,7 @@
 #!/bin/bash
 '''
     This program plays online radios...
-    Copyright (C) 2013 Appavoo P Vara
+    Copyright (C) 2015 Appavoo Vara ;)
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -23,17 +23,22 @@ then
 	echo "2. Top FM"
 	echo "3. Best FM"
 	echo "4. RadioONE"
+	echo "5. Taal FM"
+	echo "6. Kool FM"
+	echo "7. Music FM"
+	echo "8. Radio Mauritius"
+	echo "9. Radio Moris"
 
-	echo "Enter 1, 2, 3 to select or any other thing to quit!"
+	echo "Enter 1, 2, 3, ... to select or any other thing to quit!"
 	read choice
 	if test $choice -eq "1" 
 	then
 		echo "You are now listening to RadioPlus..."
-		mplayer mms://mediaserver.intnet.mu/radioplus
+		mplayer -cache 1024 http://fire.wavestreamer.com:8034/;?icy=http
 	elif test $choice -eq "2" 
 	then
 		echo "You are now listening to TopFM..."
-		mplayer rtsp://202.123.13.40:1935/live/TopFM.sdp
+		mplayer http://202.123.13.40:1935/live/TopFM.sdp/playlist.m3u8
 	elif test $choice -eq "3" 
 	then
 		echo "You are now listening to BestFM..."
@@ -41,7 +46,27 @@ then
 	elif test $choice -eq "4" 
 	then
 		echo "You are now listening to RadioONE..."
-		mplayer http://208.116.36.22:5000/listen.pls
+		mplayer http://204.45.126.170:8081/;
+	elif test $choice -eq "5" 
+	then
+		echo "You are now listening to Taal FM..."
+		mplayer mms://mediaserver.intnet.mu/mbctaalfm
+	elif test $choice -eq "6" 
+	then
+		echo "You are now listening to Kool FM..."
+		mplayer mms://mediaserver.intnet.mu/mbckoolfm
+	elif test $choice -eq "7" 
+	then
+		echo "You are now listening to Music FM..."
+		mplayer mms://mediaserver.intnet.mu/mbcmusicfm
+	elif test $choice -eq "8" 
+	then
+		echo "You are now listening to Radio Mauritius..."
+		mplayer mms://mediaserver.intnet.mu/mbcrm2
+	elif test $choice -eq "9" 
+	then
+		echo "You are now listening to Radio Moris..."
+		mplayer mms://mediaserver.intnet.mu/mbcrm1
 	else
 		clear
 		echo "Bye."
