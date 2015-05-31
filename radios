@@ -34,11 +34,11 @@ then
 	if test $choice -eq "1" 
 	then
 		echo "You are now listening to RadioPlus..."
-		mplayer -cache 1024 http://fire.wavestreamer.com:8034/;?icy=http
+		mplayer -cache 1024 mms://mediaserver.intnet.mu/radioplus
 	elif test $choice -eq "2" 
 	then
 		echo "You are now listening to TopFM..."
-		mplayer http://202.123.13.40:1935/live/TopFM.sdp/playlist.m3u8
+		mplayer mms://mediaserver.intnet.mu/topfm
 	elif test $choice -eq "3" 
 	then
 		echo "You are now listening to BestFM..."
@@ -46,7 +46,7 @@ then
 	elif test $choice -eq "4" 
 	then
 		echo "You are now listening to RadioONE..."
-		mplayer http://204.45.126.170:8081/;
+		mplayer http://mu1.frekance.com:8585/128kbps
 	elif test $choice -eq "5" 
 	then
 		echo "You are now listening to Taal FM..."
